@@ -243,7 +243,7 @@ class SlackInput(InputChannel):
                         on_new_message,
                         text=self._sanitize_user_message(
                             output['event']['text'],
-                            output['authed_users']),
+                            output.get('authed_users',[])),
                         sender_id=output.get('event').get('user'))
 
             return response.text("")
